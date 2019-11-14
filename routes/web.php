@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('contacts.index');
 });
+
+// Redirige las lineas (nombre con el que se accede en la url) y el controlador
+Route::resource('contacts', 'ContactsController');
