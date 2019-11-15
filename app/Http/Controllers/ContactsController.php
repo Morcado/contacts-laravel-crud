@@ -13,7 +13,11 @@ class ContactsController extends Controller
      */
     public function index()
     {
-        return view('contacts.index');
+        $contacts = \App\Contact::all();
+        // dd($contacts); //depurar
+        return view('contacts.index', [
+            'contacts' => $contacts
+        ]);
     }
 
     /**
@@ -23,7 +27,7 @@ class ContactsController extends Controller
      */
     public function create()
     {
-        //
+        return view('contacts.create');
     }
 
     /**
@@ -34,7 +38,14 @@ class ContactsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->first_name);
+        $contact = new \App\Contact;
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->save();
+        // redirigir con get despues del post
+        return redirect('/contacts');
     }
 
     /**

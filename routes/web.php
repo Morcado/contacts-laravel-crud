@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('contacts.index');
-});
+// Route::get('/', function () {
+//     return view('contacts.index');
+// });
+
+Route::get('/', 'ContactsController@index');
 
 // Redirige las lineas (nombre con el que se accede en la url) y el controlador
 Route::resource('contacts', 'ContactsController');
