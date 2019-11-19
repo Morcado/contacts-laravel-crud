@@ -96,6 +96,10 @@ class ContactsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        /* Hacer un dialogo de confirmacion aqui */
+        $contact = \App\Contact::find($id);
+        /* Buscar que el contacto exista */
+        $contact->delete();
+        return redirect('/contacts');
     }
 }

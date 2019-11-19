@@ -22,6 +22,12 @@
                 <td>{{ $contact->email }}</td>
                 <td>
                     <a href="/contacts/{{ $contact->id }}/edit">Edit</a>
+                    <form action="/contacts/{{ $contact->id }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        {{-- Hacer un cuadro de confirmacion aqui --}}
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
