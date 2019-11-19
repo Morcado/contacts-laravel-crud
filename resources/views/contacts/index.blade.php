@@ -7,10 +7,10 @@
     <table class="table">
         <thead class="thead-light">
             <tr>
-
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Email</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +20,9 @@
                 <td>{{ $contact->first_name }}</td>
                 <td>{{ $contact->last_name }}</td>
                 <td>{{ $contact->email }}</td>
+                <td>
+                    <a href="/contacts/{{ $contact->id }}/edit">Edit</a>
+                </td>
             </tr>
             @endforeach
         </tbody>

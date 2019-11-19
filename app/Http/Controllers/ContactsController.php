@@ -67,8 +67,9 @@ class ContactsController extends Controller
      */
     public function edit($id)
     {
-        //
-    }
+        $contact = \App\Contact::find($id); /* Nos regresa un contacto */
+        return view('contacts.edit', ['contact' => $contact]);
+    }   
 
     /**
      * Update the specified resource in storage.
@@ -79,7 +80,12 @@ class ContactsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $contact = \App\Contact::find($id);
+        $contact->first_name = $request->first_name;
+        $contact->last_name = $request->last_name;
+        $contact->email = $request->email;
+        $contact->save();
+        return redirect('/contacts');
     }
 
     /**
