@@ -19,3 +19,7 @@ Route::get('/', 'ContactsController@index');
 
 // Redirige las lineas (nombre con el que se accede en la url) y el controlador
 Route::resource('contacts', 'ContactsController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

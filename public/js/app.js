@@ -36985,8 +36985,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/alumnos/Escritorio/asd/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/alumnos/Escritorio/asd/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Morcado\Desktop\appweb\laravel-crud-Morcado\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Morcado\Desktop\appweb\laravel-crud-Morcado\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

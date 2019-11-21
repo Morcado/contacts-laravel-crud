@@ -10,6 +10,14 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    /* Relacion uno a muchos
+    un usuario tiene muchos contactos */
+    public function contacts() {
+        /* Parametros:
+        modelo, llave foranea y llave principal del usuario */
+        return $this->hasMany('\App\Contact', 'user_id', 'id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

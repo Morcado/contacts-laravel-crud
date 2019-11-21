@@ -1,9 +1,14 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('main')
-    <h1 class="text-center">Contactos</h1>
+@section('content')
+<div class="container">
+
+    <h1 class="text-center">Contacts of {{ Auth::user()->name }}</h1>
     <a href="/contacts/create" class="btn btn-primary">New contacts</a>
 
+    @if (count($contacts) == 0)
+        <p class="display-4">No contacts</p>                
+    @else        
     <table class="table">
         <thead class="thead-light">
             <tr>
@@ -33,4 +38,8 @@
             @endforeach
         </tbody>
     </table>
+    @endif
+
+</div>
+
 @endsection

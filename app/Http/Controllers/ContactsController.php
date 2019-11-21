@@ -3,18 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// include facade 
+use Illuminate\Support\Facades\Auth;
 
 class ContactsController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $contacts = \App\Contact::all();
+        // $contacts = \App\Contact::all();
         // dd($contacts); //depurar
+
+        // Busca los contactos con el uusuario
+        // $contacts = \App\User::find(Auth::id()) -> contacts; // es un metodo de usuario
+
+        // Busca los contactos con el usuario en auth
+        $contacts = Auth::user() -> contacts;
         return view('contacts.index', [
             'contacts' => $contacts
         ]);
@@ -43,6 +58,7 @@ class ContactsController extends Controller
         $contact->first_name = $request->first_name;
         $contact->last_name = $request->last_name;
         $contact->email = $request->email;
+        $contact->user_id = Auth::id();
         $contact->save();
         // redirigir con get despues del post
         return redirect('/contacts');

@@ -1,6 +1,8 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
-@section('main')
+@section('content')
+<div class="container">
+
     <h1>Add new contact</h1>
     <form action="/contacts" method="post">
         @csrf {{-- crea un token para que solo se pueda llamar al post desde solo la aplicacion --}}
@@ -23,4 +25,5 @@
         <a href="/contacts" class="btn btn-danger">Cancel</a>
 
     </form>
+</div>
 @endsection
